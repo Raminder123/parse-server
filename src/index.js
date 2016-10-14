@@ -8,11 +8,17 @@ import TestUtils            from './TestUtils';
 import { useExternal }      from './deprecated';
 import { getLogger }        from './logger';
 
-// Factory function
-let _ParseServer = function(options) {
-  let server = new ParseServer(options);
-  return server.app;
-}
+var api = new ParseServer({
+  databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
+  cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
+  appId: process.env.APP_ID || 'qwertyuiop1234567890',
+  masterKey: process.env.MASTER_KEY || 'poiuytrewq0987654321'
+});
+
+var app = express();
+
+// Serve the Parse API on the /parse URL prefix
+var mountPath = process.env.PARSE_MOUNT || '/parse';
 // Mount the create liveQueryServer
 _ParseServer.createLiveQueryServer = ParseServer.createLiveQueryServer;
 
