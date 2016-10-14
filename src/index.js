@@ -11,8 +11,8 @@ import { getLogger }        from './logger';
 var api = new ParseServer({
   databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
-  appId: process.env.APP_ID || 'qwertyuiop1234567890',
-  masterKey: process.env.MASTER_KEY || 'poiuytrewq0987654321'
+  appId: process.env.APP_ID || 'ybkCiuD5JjDLfceX91fT9bCijKLd7BGNbZ6LQCLr',
+  masterKey: process.env.MASTER_KEY || 'DMMCeeylPSXCMkX1wXaWNlxhsguSpLMQhQq1nAiY'
 });
 
 var app = express();
